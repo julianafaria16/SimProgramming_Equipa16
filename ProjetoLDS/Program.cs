@@ -12,11 +12,17 @@ namespace ProjetoLDS
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
+        //static void Main()
+        //{
+        //    Application.EnableVisualStyles();
+        //    Application.SetCompatibleTextRenderingDefault(false);
+        //    Application.Run(new Form1());
+        //}
+
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Controller controller = new Controller();
+            controller.IniciarPrograma();
         }
     }
 }

@@ -16,47 +16,35 @@ namespace ProjetoLDS
 {
     public partial class Form1 : Form
     {
+        View view;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void ProcurarFicheiro()
-        {
-            openFileDialog1.Filter = "Ficheiros PDF (*.pdf)|*.pdf|Todos os ficheiros (*.*)|*.*";
-            openFileDialog1.ShowDialog();
-            EnderecoFicheiroTxt.Text = openFileDialog1.FileName;
-        }
+        public View View { get => view; set => view = value; }
 
         private void ProcurarBt_Click(object sender, EventArgs e)
         {
-            ProcurarFicheiro();
+            view.ProcurarFicheiro(openFileDialog1, EnderecoFicheiroTxt);
         }
 
         private void InserirBt_Click(object sender, EventArgs e)
         {
-            if(!File.Exists(EnderecoFicheiroTxt.Text))
-            {
-                MessageBox.Show("Esse ficheiro não existe.");
-                ProcurarFicheiro();
-                return;
-            }
-
-            dataGridView1.Rows.Add(EnderecoFicheiroTxt.Text, "Pré-Visualizar", "Eliminar");
-            EnderecoFicheiroTxt.Clear();
-            dataGridView1.ClearSelection();
+            view.InserirFicheiroClick(sender, e, openFileDialog1, UnirFicheirosGridView, EnderecoFicheiroTxt);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count > 1)
+            if (UnirFicheirosGridView.SelectedCells.Count > 1)
                 return;
 
             if (e.ColumnIndex == 1)
-                Process.Start(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                Process.Start(UnirFicheirosGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
 
             if (e.ColumnIndex == 2)
-                dataGridView1.Rows.RemoveAt(e.RowIndex);
+                UnirFicheirosGridView.Rows.RemoveAt(e.RowIndex);
 
         }
 
@@ -68,10 +56,10 @@ namespace ProjetoLDS
 
         private string[] GetFiles()
         {
-            string[] ficheiros = new string[dataGridView1.Rows.Count];
+            string[] ficheiros = new string[UnirFicheirosGridView.Rows.Count];
             var i = 0;
 
-            foreach (DataGridViewRow item in dataGridView1.Rows)
+            foreach (DataGridViewRow item in UnirFicheirosGridView.Rows)
             {
                 ficheiros[i] = item.Cells["NomeFicheiro"].Value.ToString();
                 i++;
@@ -115,5 +103,6 @@ namespace ProjetoLDS
         {
             ConcatenarFicheiros();
         }
+
     }
 }

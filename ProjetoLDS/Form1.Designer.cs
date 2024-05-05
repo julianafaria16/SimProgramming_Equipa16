@@ -32,12 +32,12 @@ namespace ProjetoLDS
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ConcatenarFicheirosBt = new System.Windows.Forms.Button();
             this.ProcurarPastaBt = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.EnderecoPastaDestinoTxt = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UnirFicheirosGridView = new System.Windows.Forms.DataGridView();
             this.NomeFicheiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visualizar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -54,7 +54,7 @@ namespace ProjetoLDS
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UnirFicheirosGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +86,7 @@ namespace ProjetoLDS
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.ConcatenarFicheirosBt);
             this.groupBox3.Controls.Add(this.ProcurarPastaBt);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.EnderecoPastaDestinoTxt);
@@ -97,18 +97,18 @@ namespace ProjetoLDS
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Destino";
             // 
-            // button2
+            // ConcatenarFicheirosBt
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Maroon;
-            this.button2.Location = new System.Drawing.Point(668, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "UNIR!";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ConcatenarFicheirosBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ConcatenarFicheirosBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConcatenarFicheirosBt.ForeColor = System.Drawing.Color.Maroon;
+            this.ConcatenarFicheirosBt.Location = new System.Drawing.Point(668, 17);
+            this.ConcatenarFicheirosBt.Name = "ConcatenarFicheirosBt";
+            this.ConcatenarFicheirosBt.Size = new System.Drawing.Size(75, 23);
+            this.ConcatenarFicheirosBt.TabIndex = 7;
+            this.ConcatenarFicheirosBt.Text = "UNIR!";
+            this.ConcatenarFicheirosBt.UseVisualStyleBackColor = true;
+            this.ConcatenarFicheirosBt.Click += new System.EventHandler(this.button2_Click);
             // 
             // ProcurarPastaBt
             // 
@@ -144,7 +144,7 @@ namespace ProjetoLDS
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.UnirFicheirosGridView);
             this.groupBox2.Location = new System.Drawing.Point(8, 128);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(748, 197);
@@ -152,24 +152,24 @@ namespace ProjetoLDS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ficheiros";
             // 
-            // dataGridView1
+            // UnirFicheirosGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.UnirFicheirosGridView.AllowUserToAddRows = false;
+            this.UnirFicheirosGridView.AllowUserToDeleteRows = false;
+            this.UnirFicheirosGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UnirFicheirosGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.UnirFicheirosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NomeFicheiro,
             this.Visualizar,
             this.Eliminar});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(734, 172);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.UnirFicheirosGridView.Location = new System.Drawing.Point(8, 19);
+            this.UnirFicheirosGridView.Name = "UnirFicheirosGridView";
+            this.UnirFicheirosGridView.ReadOnly = true;
+            this.UnirFicheirosGridView.Size = new System.Drawing.Size(734, 172);
+            this.UnirFicheirosGridView.TabIndex = 0;
+            this.UnirFicheirosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // NomeFicheiro
             // 
@@ -282,7 +282,7 @@ namespace ProjetoLDS
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UnirFicheirosGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -302,12 +302,12 @@ namespace ProjetoLDS
         private System.Windows.Forms.TextBox EnderecoFicheiroTxt;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView UnirFicheirosGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeFicheiro;
         private System.Windows.Forms.DataGridViewLinkColumn Visualizar;
         private System.Windows.Forms.DataGridViewLinkColumn Eliminar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ConcatenarFicheirosBt;
         private System.Windows.Forms.Button ProcurarPastaBt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox EnderecoPastaDestinoTxt;
