@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+
 
 namespace ProjetoLDS
 {
@@ -13,9 +15,8 @@ namespace ProjetoLDS
         private Model model;
         private Form1 janela;
 
-        public event System.EventHandler ProcessarIntrodFicheiro;
-
-        //public event SolicitacaoListaFormas PrecisoDeFormas;
+        public event EventHandler ProcessarIntrodFicheiro;
+        //public event EventHandler ProcessarConcatFicheiros;
 
         internal View(Model m)
         {
@@ -59,5 +60,32 @@ namespace ProjetoLDS
             gridView.ClearSelection();
         }
 
+        public void UnirFicheirosGrdViewCellContentClick(DataGridViewCellEventArgs e, DataGridView gridView)
+        {
+            if (gridView.SelectedCells.Count > 1)
+                return;
+
+            if (e.ColumnIndex == 1)
+                Process.Start(gridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            if (e.ColumnIndex == 2)
+                gridView.Rows.RemoveAt(e.RowIndex);
+        }
+
+        public void ProcurarPastaClick(FolderBrowserDialog flBrwDl, TextBox outputTxtBx)
+        {
+            flBrwDl.ShowDialog();
+            outputTxtBx.Text = flBrwDl.SelectedPath;
+        }
+
+        public void ConcatenarFicheirosClick(object origem, EventArgs e, string[] ficheiros, TextBox destinationFolderTxtBx)
+        {
+            //Ligar ao controller
+            Controller controller = new Controller(ficheiros, destinationFolderTxtBx.Text);
+            var ficheiroContactenado = controller.ProcessarConcatFicheiros(origem, e);
+
+            //Abrir ficheiro
+            Process.Start(ficheiroContactenado);
+        }
     }
 }

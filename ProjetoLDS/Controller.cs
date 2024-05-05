@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ProjetoLDS
 {
     class Controller
@@ -15,7 +16,10 @@ namespace ProjetoLDS
         public delegate void AtivacaoInterface(object origem);
         public event AtivacaoInterface AtivarInterface;
 
-        public Controller()
+        public string[] Ficheiros { get; set; }
+        public string PastaDestino { get; set; }
+
+        public Controller(string[] nFicheiros, string nPastaDestino)
         {
             view = new View(model);
             model = new Model(view);
@@ -23,7 +27,10 @@ namespace ProjetoLDS
             //Ligar o evento da View ao método do Controller, de foram desacoplada
             //porque a View não sabe quem responderá ao evento.
             view.ProcessarIntrodFicheiro += ProcessarIntrodFicheiro;
-            //view.PrecisoDeFormas += model.SolicitarListaFormas;
+            //view.ProcessarConcatFicheiros += ProcessarConcatFicheiros;
+
+            Ficheiros = nFicheiros;
+            PastaDestino = nPastaDestino;
         }
 
         public void IniciarPrograma()
@@ -33,9 +40,12 @@ namespace ProjetoLDS
 
         public void ProcessarIntrodFicheiro(object origem, EventArgs e)
         {
-            // Implementar...
             model.IntroduzirFicheiro(origem, e);
         }
 
+        public string ProcessarConcatFicheiros(object origem, EventArgs e)
+        {
+            return model.ConcatenarFicheiros(Ficheiros, PastaDestino);
+        }
     }
 }

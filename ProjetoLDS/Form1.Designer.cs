@@ -108,7 +108,7 @@ namespace ProjetoLDS
             this.ConcatenarFicheirosBt.TabIndex = 7;
             this.ConcatenarFicheirosBt.Text = "UNIR!";
             this.ConcatenarFicheirosBt.UseVisualStyleBackColor = true;
-            this.ConcatenarFicheirosBt.Click += new System.EventHandler(this.button2_Click);
+            this.ConcatenarFicheirosBt.Click += new System.EventHandler(this.ConcatenarFicheirosBt_Click);
             // 
             // ProcurarPastaBt
             // 
@@ -169,7 +169,7 @@ namespace ProjetoLDS
             this.UnirFicheirosGridView.ReadOnly = true;
             this.UnirFicheirosGridView.Size = new System.Drawing.Size(734, 172);
             this.UnirFicheirosGridView.TabIndex = 0;
-            this.UnirFicheirosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.UnirFicheirosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UnirFicheirosGridView_CellContentClick);
             // 
             // NomeFicheiro
             // 
@@ -275,6 +275,7 @@ namespace ProjetoLDS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(772, 359);
             this.Controls.Add(this.tabControl1);
+            this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "Form1";
             this.Text = "SimProgramming | PDF utilitário";
             this.tabControl1.ResumeLayout(false);

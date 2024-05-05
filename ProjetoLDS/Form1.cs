@@ -1,15 +1,4 @@
-﻿using PdfSharpCore.Pdf;
-using PdfSharpCore.Pdf.IO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace ProjetoLDS
@@ -35,23 +24,14 @@ namespace ProjetoLDS
             view.InserirFicheiroClick(sender, e, openFileDialog1, UnirFicheirosGridView, EnderecoFicheiroTxt);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void UnirFicheirosGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (UnirFicheirosGridView.SelectedCells.Count > 1)
-                return;
-
-            if (e.ColumnIndex == 1)
-                Process.Start(UnirFicheirosGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            if (e.ColumnIndex == 2)
-                UnirFicheirosGridView.Rows.RemoveAt(e.RowIndex);
-
+            view.UnirFicheirosGrdViewCellContentClick(e, UnirFicheirosGridView);
         }
 
         private void ProcurarPastaBt_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.ShowDialog();
-            EnderecoPastaDestinoTxt.Text = folderBrowserDialog1.SelectedPath;
+            view.ProcurarPastaClick(folderBrowserDialog1, EnderecoPastaDestinoTxt);
         }
 
         private string[] GetFiles()
@@ -64,45 +44,16 @@ namespace ProjetoLDS
                 ficheiros[i] = item.Cells["NomeFicheiro"].Value.ToString();
                 i++;
             }
+
             return ficheiros;
         }
 
-        private void ConcatenarFicheiros()
+        private void ConcatenarFicheirosBt_Click(object sender, EventArgs e)
         {
-            // Get some file names
-            string[] files = GetFiles();
+            if (EnderecoPastaDestinoTxt.Text.Length < 1)
+                return;
 
-            // Open the output document
-            PdfDocument outputDocument = new PdfDocument();
-
-            // Iterate files
-            foreach (string file in files)
-            {
-                // Open the document to import pages from it.
-                PdfDocument inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import);
-
-                // Iterate pages
-                int count = inputDocument.PageCount;
-                for (int idx = 0; idx < count; idx++)
-                {
-                    // Get the page from the external document...
-                    PdfPage page = inputDocument.Pages[idx];
-                    // ...and add it to the output document.
-                    outputDocument.AddPage(page);
-                }
-            }
-
-            // Save the document...
-            string filename = EnderecoPastaDestinoTxt.Text+"\\ConcatenatedDocument1.pdf";
-            outputDocument.Save(filename);
-            // ...and start a viewer.
-            Process.Start(filename);
+            view.ConcatenarFicheirosClick(sender, e, GetFiles(), EnderecoPastaDestinoTxt);
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ConcatenarFicheiros();
-        }
-
     }
 }
