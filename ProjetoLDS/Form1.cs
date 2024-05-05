@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ProjetoLDS
@@ -50,8 +51,11 @@ namespace ProjetoLDS
 
         private void ConcatenarFicheirosBt_Click(object sender, EventArgs e)
         {
-            if (EnderecoPastaDestinoTxt.Text.Length < 1)
+            if (EnderecoPastaDestinoTxt.Text.Length < 1 || !Directory.Exists(EnderecoPastaDestinoTxt.Text))
+            {
+                MessageBox.Show("Deve introduzir a pasta de destino, antes de continuar.");
                 return;
+            }
 
             view.ConcatenarFicheirosClick(sender, e, GetFiles(), EnderecoPastaDestinoTxt);
         }
