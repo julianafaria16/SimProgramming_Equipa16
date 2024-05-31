@@ -18,19 +18,21 @@ namespace ProjetoLDS
 
         public string[] Ficheiros { get; set; }
         public string PastaDestino { get; set; }
+        public string FicheiroPdf { get; set; }
+        public int[] PaginasEliminar { get; set; }
 
-        public Controller(string[] nFicheiros, string nPastaDestino)
+        public Controller(string[] nFicheiros, string nPastaDestino, string nFicheiroPdf, int[] nPaginasEliminar)
         {
             view = new View(model);
             model = new Model(view);
 
-            //Ligar o evento da View ao método do Controller, de foram desacoplada
-            //porque a View não sabe quem responderá ao evento.
+            //Ligar o evento da View ao método do Controller, de forma desacoplada porque a View não sabe quem responderá ao evento.
             view.ProcessarIntrodFicheiro += ProcessarIntrodFicheiro;
-            //view.ProcessarConcatFicheiros += ProcessarConcatFicheiros;
 
             Ficheiros = nFicheiros;
             PastaDestino = nPastaDestino;
+            FicheiroPdf = nFicheiroPdf;
+            PaginasEliminar = nPaginasEliminar;
         }
 
         public void IniciarPrograma()
@@ -46,6 +48,11 @@ namespace ProjetoLDS
         public string ProcessarConcatFicheiros(object origem, EventArgs e)
         {
             return model.ConcatenarFicheiros(Ficheiros, PastaDestino);
+        }
+
+        public bool ProcessarEliminarPaginas(object origem, EventArgs e)
+        {
+            return model.EliminarPaginas(FicheiroPdf, PaginasEliminar);
         }
     }
 }

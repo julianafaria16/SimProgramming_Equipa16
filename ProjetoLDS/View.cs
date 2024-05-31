@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
@@ -81,11 +77,26 @@ namespace ProjetoLDS
         public void ConcatenarFicheirosClick(object origem, EventArgs e, string[] ficheiros, TextBox destinationFolderTxtBx)
         {
             //Ligar ao controller
-            Controller controller = new Controller(ficheiros, destinationFolderTxtBx.Text);
+            Controller controller = new Controller(ficheiros, destinationFolderTxtBx.Text, null, null);
             var ficheiroContactenado = controller.ProcessarConcatFicheiros(origem, e);
 
             //Abrir ficheiro
             Process.Start(ficheiroContactenado);
         }
+
+        public void EliminarPaginasClick(object origem, EventArgs e, string ficheiroPdf, int[] paginasParaEliminar)
+        {
+            //Ligar ao controller
+            Controller controller = new Controller(null, null, ficheiroPdf, paginasParaEliminar);
+            var resposta = controller.ProcessarEliminarPaginas(origem, e);
+
+            //Abrir ficheiro
+            if (!resposta)
+                MessageBox.Show("Ocorreu um erro. Tente novamente");
+            else
+                MessageBox.Show("A(s) página(s) indicada(s) fora(m) eliminada(s) com sucesso.");
+
+        }
+
     }
 }

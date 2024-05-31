@@ -48,14 +48,27 @@ namespace ProjetoLDS
             this.EnderecoFicheiroTxt = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Procurar2Bt = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.EnderecoFicheiro2Txt = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.EliminarBt = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PaginasParaEliminarTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UnirFicheirosGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -66,7 +79,7 @@ namespace ProjetoLDS
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(772, 359);
+            this.tabControl1.Size = new System.Drawing.Size(834, 495);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -77,7 +90,7 @@ namespace ProjetoLDS
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(764, 333);
+            this.tabPage1.Size = new System.Drawing.Size(826, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Unir ficheiros";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -147,7 +160,7 @@ namespace ProjetoLDS
             this.groupBox2.Controls.Add(this.UnirFicheirosGridView);
             this.groupBox2.Location = new System.Drawing.Point(8, 128);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(748, 197);
+            this.groupBox2.Size = new System.Drawing.Size(748, 333);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ficheiros";
@@ -167,7 +180,7 @@ namespace ProjetoLDS
             this.UnirFicheirosGridView.Location = new System.Drawing.Point(8, 19);
             this.UnirFicheirosGridView.Name = "UnirFicheirosGridView";
             this.UnirFicheirosGridView.ReadOnly = true;
-            this.UnirFicheirosGridView.Size = new System.Drawing.Size(734, 172);
+            this.UnirFicheirosGridView.Size = new System.Drawing.Size(734, 308);
             this.UnirFicheirosGridView.TabIndex = 0;
             this.UnirFicheirosGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UnirFicheirosGridView_CellContentClick);
             // 
@@ -257,23 +270,129 @@ namespace ProjetoLDS
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(764, 333);
+            this.tabPage2.Size = new System.Drawing.Size(826, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Eliminar página(s)";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.Procurar2Bt);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.EnderecoFicheiro2Txt);
+            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(810, 48);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Selecionar ficheiro";
+            // 
+            // Procurar2Bt
+            // 
+            this.Procurar2Bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Procurar2Bt.Location = new System.Drawing.Point(697, 18);
+            this.Procurar2Bt.Name = "Procurar2Bt";
+            this.Procurar2Bt.Size = new System.Drawing.Size(107, 21);
+            this.Procurar2Bt.TabIndex = 3;
+            this.Procurar2Bt.Text = "Procurar";
+            this.Procurar2Bt.UseVisualStyleBackColor = true;
+            this.Procurar2Bt.Click += new System.EventHandler(this.Procurar2Bt_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Endereço";
+            // 
+            // EnderecoFicheiro2Txt
+            // 
+            this.EnderecoFicheiro2Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnderecoFicheiro2Txt.Location = new System.Drawing.Point(64, 19);
+            this.EnderecoFicheiro2Txt.Name = "EnderecoFicheiro2Txt";
+            this.EnderecoFicheiro2Txt.Size = new System.Drawing.Size(627, 20);
+            this.EnderecoFicheiro2Txt.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(251, -155);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 0;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // EliminarBt
+            // 
+            this.EliminarBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EliminarBt.Location = new System.Drawing.Point(697, 17);
+            this.EliminarBt.Name = "EliminarBt";
+            this.EliminarBt.Size = new System.Drawing.Size(107, 23);
+            this.EliminarBt.TabIndex = 2;
+            this.EliminarBt.Text = "Eliminar página(s)";
+            this.EliminarBt.UseVisualStyleBackColor = true;
+            this.EliminarBt.Click += new System.EventHandler(this.EliminarBt_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.PaginasParaEliminarTxt);
+            this.groupBox5.Controls.Add(this.EliminarBt);
+            this.groupBox5.Location = new System.Drawing.Point(6, 60);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(810, 63);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Selecionar página(s) para eliminar";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Página(s)";
+            // 
+            // PaginasParaEliminarTxt
+            // 
+            this.PaginasParaEliminarTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PaginasParaEliminarTxt.Location = new System.Drawing.Point(64, 19);
+            this.PaginasParaEliminarTxt.Name = "PaginasParaEliminarTxt";
+            this.PaginasParaEliminarTxt.Size = new System.Drawing.Size(627, 20);
+            this.PaginasParaEliminarTxt.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(179, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Por exemplo, 1-5, 8, 11-13 ou 1; 3; 5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 359);
+            this.ClientSize = new System.Drawing.Size(834, 495);
             this.Controls.Add(this.tabControl1);
             this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "Form1";
@@ -286,6 +405,11 @@ namespace ProjetoLDS
             ((System.ComponentModel.ISupportInitialize)(this.UnirFicheirosGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -313,6 +437,16 @@ namespace ProjetoLDS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox EnderecoPastaDestinoTxt;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button Procurar2Bt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox EnderecoFicheiro2Txt;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button EliminarBt;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox PaginasParaEliminarTxt;
+        private System.Windows.Forms.Label label5;
     }
 }
 

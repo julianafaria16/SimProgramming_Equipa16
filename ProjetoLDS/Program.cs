@@ -21,7 +21,7 @@ namespace ProjetoLDS
 
         static void Main()
         {
-            Controller controller = new Controller(null, null);
+            Controller controller = new Controller(null, null, null, null);
             controller.IniciarPrograma();
         }
     }

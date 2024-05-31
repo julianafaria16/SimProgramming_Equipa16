@@ -53,5 +53,30 @@ namespace ProjetoLDS
             return filename;
         }
 
+        public bool EliminarPaginas(string ficheiroPdf, int[] paginas)
+        {
+            // Open the file
+            PdfDocument inputDocument = PdfReader.Open(ficheiroPdf, PdfDocumentOpenMode.Modify);
+
+            //É necessário ordenar as páginas que são para eliminar por ordem decrescente, porque temos de começar pelas últimas, porque após eliminar
+            //uma página, a numeração das páginas seguintes diminui 1 posição
+
+            Array.Reverse(paginas);
+
+            int _cnt = inputDocument.PageCount;
+
+            for (int i = 0; i < paginas.Length; i++)
+            {
+                if (paginas[i]-1 < 0 || paginas[i]-1 > _cnt - 1)
+                    return false;
+
+                inputDocument.Pages.RemoveAt(paginas[i]-1);
+                inputDocument.Save(ficheiroPdf);
+            }
+
+            return true;
+
+        }
+
     }
 }
