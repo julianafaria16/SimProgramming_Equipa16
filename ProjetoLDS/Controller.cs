@@ -10,7 +10,7 @@ namespace ProjetoLDS
 {
     class Controller
     {
-        Model model;
+        IModel model;
         View view;
 
         public delegate void AtivacaoInterface(object origem);

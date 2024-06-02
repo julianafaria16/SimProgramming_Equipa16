@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Windows.Forms;
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Pdf.IO;
 
 namespace ProjetoLDS
 {
-    class Model
+    public interface IModel
+    {
+        void IntroduzirFicheiro(object origem, EventArgs e);
+        string ConcatenarFicheiros(string[] ficheiros, string pastaDestino);
+        bool EliminarPaginas(string ficheiroPdf, int[] paginas);
+    }
+
+    class Model : IModel
     {
         private View view;
         

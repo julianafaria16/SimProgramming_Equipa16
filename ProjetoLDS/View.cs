@@ -8,13 +8,13 @@ namespace ProjetoLDS
 {
     public class View
     {
-        private Model model;
+        private IModel model;
         private Form1 janela;
 
         public event EventHandler ProcessarIntrodFicheiro;
         //public event EventHandler ProcessarConcatFicheiros;
 
-        internal View(Model m)
+        internal View(IModel m)
         {
             model = m;
         }
